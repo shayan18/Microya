@@ -14,6 +14,9 @@ public enum HttpMethod {
   /// The PATCH HTTP method. Required body data to be sent.
   case patch(body: Data)
 
+  /// The PUT HTTP method. Required body data to be sent.
+  case put(body: Data)
+
   /// The DELETE HTTP method.
   case delete
 
@@ -28,6 +31,10 @@ public enum HttpMethod {
 
     case let .patch(body):
       request.httpMethod = "PATCH"
+      request.httpBody = body
+
+    case let .put(body):
+      request.httpMethod = "PUT"
       request.httpBody = body
 
     case .delete:
